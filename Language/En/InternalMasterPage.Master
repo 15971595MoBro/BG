@@ -1,0 +1,768 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="InternalMasterPage.master.cs" Inherits="BGBeauty_Website.Language.En.InternalMasterPage" %>
+
+<%@ Register Src="~/UserControl/NavbarMenu.ascx" TagPrefix="uc1" TagName="NavbarMenu" %>
+<%@ Register Src="~/UserControl/QuickLinks.ascx" TagPrefix="uc1" TagName="QuickLinks" %>
+<%@ Register Src="~/UserControl/MainSlider.ascx" TagPrefix="uc1" TagName="MainSlider" %>
+<%@ Register Src="~/UserControl/CategoryBanner.ascx" TagPrefix="uc1" TagName="CategoryBanner" %>
+<%@ Register Src="~/UserControl/FeatureArea.ascx" TagPrefix="uc1" TagName="FeatureArea" %>
+<%@ Register Src="~/UserControl/ProductArea.ascx" TagPrefix="uc1" TagName="ProductArea" %>
+<%@ Register Src="~/UserControl/SocialMediaFooter.ascx" TagPrefix="uc1" TagName="SocialMediaFooter" %>
+<%@ Register Src="~/UserControl/OtherPage.ascx" TagPrefix="uc1" TagName="OtherPage" %>
+<%@ Register Src="~/UserControl/FooterAdressPhone.ascx" TagPrefix="uc1" TagName="FooterAdressPhone" %>
+<%@ Register Src="~/UserControl/LoginPopup.ascx" TagPrefix="uc1" TagName="LoginPopup" %>
+<%@ Register Src="~/UserControl/AllProduct.ascx" TagPrefix="uc1" TagName="AllProduct" %>
+<%@ Register Src="~/UserControl/AboutArea.ascx" TagPrefix="uc1" TagName="AboutArea" %>
+<%@ Register Src="~/UserControl/AreaWrapper.ascx" TagPrefix="uc1" TagName="AreaWrapper" %>
+<%@ Register Src="~/UserControl/ِAboutUsFooter.ascx" TagPrefix="uc1" TagName="AboutUsFooter" %>
+<%@ Register Src="~/UserControl/ContactUsFooter.ascx" TagPrefix="uc1" TagName="ContactUsFooter" %>
+
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>BGBeauty</title>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="/App_Themes/asset/img/favicon.ico" />
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/font-awesome.min.css" />
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/animate.css" />
+    <!-- 7-stroke fonts css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/pe-icon-7-stroke.min.css" />
+    <!-- Nice select css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/nice-select.css" />
+    <!-- Jquery fancybox css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/jquery.fancybox.css" />
+    <!-- Jquery ui price slider css -->
+    <%--    <link rel="stylesheet" href="/App_Themes/asset/css/jquery-ui.min.css" />--%>
+    <!-- Meanmenu css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/meanmenu.min.css" />
+    <!-- Owl carousel css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/owl.carousel.min.css" />
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/bootstrap.min.css" />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/default.css" />
+    <!-- Main css -->
+    <link rel="stylesheet" href="/App_Themes/asset/style.css" />
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/responsive.css" />
+
+    <link href="/App_Themes/asset/css/normalize.min.css" rel="stylesheet" />
+    <link href="/App_Themes/asset/css/ion.rangeSlider.min.css" rel="stylesheet" />
+    <link href="/App_Themes/asset/css/swiper.min.css" rel="stylesheet" />
+
+    <%--    <link href="/App_Themes/asset/css/bootstrap_tab.css" rel="stylesheet" />--%>
+    <!-- Modernizer js -->
+    <script src="/App_Themes/asset/js/vendor/modernizr-3.5.0.min.js"></script>
+    <style>
+        .search-button {
+            background: transparent none repeat scroll 0 0;
+            border: 0 none;
+            height: 45px;
+            line-height: 55px;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            -webkit-transition: all 300ms ease-in 0s;
+            transition: all 300ms ease-in 0s;
+            width: 45px;
+        }
+
+            .search-button:hover {
+                color: #c7b270;
+            }
+
+            .search-button i {
+                font-size: 25px;
+            }
+
+        .login-details a {
+            background: #c7b270 none repeat scroll 0 0;
+            border: none;
+            color: #fff;
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 10px 18px 8px;
+            text-transform: uppercase;
+        }
+
+            .login-details a:hover {
+                background: #c7b270 none repeat scroll 0 0;
+                color: #fff;
+            }
+
+        .register-box a {
+            background: #c7b270 none repeat scroll 0 0;
+            border: none;
+            color: #fff;
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 10px 18px 8px;
+            text-transform: uppercase;
+        }
+
+            .register-box a:hover {
+                background: #c7b270 none repeat scroll 0 0;
+                color: #fff;
+            }
+
+        .link-follow {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+            .link-follow li a {
+                color: #FFF;
+            }
+
+        .mobile-menu .megamenu {
+            display: block;
+        }
+
+        .mobile-menu-toggler .mobile-account-icon a {
+            font-size: 26px;
+            padding-right: 4px;
+            line-height: 0;
+            color: #222222;
+            position: relative;
+        }
+
+        .header-search-container a {
+            position: absolute;
+        }
+
+        .search-button-txt .txt-search-mob {
+            color: #666;
+            font-size: 13px;
+            width: 100%;
+            height: 40px;
+            border: none;
+            padding: 0 40px 0 10px;
+            background-color: #f2f2f2;
+        }
+
+        .search-button-txt .search-btn {
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            line-height: 42px;
+            font-size: 20px;
+            color: #222222;
+            position: absolute;
+        }
+
+        .search-shop-sidebar {
+            background-color: #1b2b4e;
+            border: 1px solid #cfcfcf;
+            border-radius: 15px;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+            font-style: italic;
+            height: 60px;
+            padding: 10px 48px 10px 18px;
+            width: 100%;
+        }
+
+        .widgets-searchbox-btn {
+            border: none;
+            background: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            margin: 0;
+            padding: 0;
+            height: 20px;
+            width: 33px;
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
+            line-height: 20px;
+            color: #fff;
+            text-align: end;
+            border-left: 1px solid #fff;
+        }
+
+        .shop-sidebar .sidebar-title.color-title {
+            margin: 25px 0 0 27px;
+        }
+
+        .shop-sidebar .shop-sidebar-color {
+            margin-top: 0 !important;
+        }
+
+        .shop-sidebar .size-list {
+            gap: 8px;
+        }
+
+            .shop-sidebar .size-list li {
+                background-color: #ededed;
+                border: 2px solid #fff;
+                border-radius: 50%;
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                height: 41px;
+                width: 41px;
+                text-align: center;
+                line-height: 38px;
+                text-transform: uppercase;
+                font-size: 16px;
+                font-weight: 700;
+                color: #525252;
+            }
+
+            .shop-sidebar .size-list .size-style-btn {
+                border: 1px solid #d5d5d5;
+                content: "";
+                position: absolute;
+                height: calc(100% + 6px);
+                width: calc(100% + 6px);
+                border-radius: 50%;
+                top: -3px;
+                left: -3px;
+                color: #525252;
+            }
+
+        .product-item .product-action a {
+            text-align: center;
+            background-color: #fff;
+            color: #000;
+            font-size: 24px;
+            height: 44px;
+            width: 44px;
+            display: block;
+            border: none;
+            border-radius: 50%;
+            line-height: 50px;
+            margin-bottom: 10px;
+            transition: all 0.4s ease-out;
+            -webkit-transition: all 0.4s ease-out;
+            -moz-transition: all 0.4s ease-out;
+            -ms-transition: all 0.4s ease-out;
+            -o-transition: all 0.4s ease-out;
+        }
+
+        .product-single-info .btn-product-cart {
+            text-align: center;
+        }
+
+        .header-navigation-area .main-menu.nav > li > a {
+            text-decoration: none;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        .sidebar li.form-check:not(:last-child) {
+            margin-bottom: 0px;
+        }
+
+        .footer-list li em {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+
+        .product-single-thumb .single-product-thumb {
+            margin-bottom: 20px;
+        }
+
+        .header-top-left > ul > li > a em {
+            font-size: 13px;
+            margin-right: 5px;
+        }
+
+        .header-bottom-list ul.ht-dropdown.megamenu-three > li {
+            width: 33.33333%;
+        }
+
+        .pro-title a {
+            text-align: center;
+        }
+
+        .pro-content p {
+            text-align: center;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body class="template-color-1">
+
+    <form id="form1" runat="server">
+        <!-- Top Bar -->
+
+        <%--<div class="header-to-bar"> HELLO EVERYONE! 25% Off All Products </div>--%>
+        <div class="wrapper">
+            <!-- Top Bar -->
+            <!-- Main Header Area Three Start Here -->
+            <header class="header-style-five">
+                <!-- Header Top Start Here -->
+                <div class="header-top">
+                    <div class="container">
+                        <div class="col-sm-12">
+                            <div
+                                class="row justify-content-lg-between justify-content-center">
+                                <!-- Header Top Left Start -->
+                                <div class="col-auto header-top-left order-2 order-lg-1">
+                                    <ul>
+                                        <asp:Repeater runat="server" ID="Repeater_TopHeader">
+                                            <ItemTemplate>
+                                                <%# Eval("Wpm_Content") %>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                        <li>
+                                            <ul class="social-icon">
+                                                <uc1:SocialMediaFooter runat="server" ID="SocialMediaFooter1" />
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Header Top Left End -->
+                                <!-- Header Top Right Start -->
+                                <div class="col-auto header-top-right order-1 order-lg-2">
+                                    <ul>
+                                        <%--<li>
+                                            <a href="#">USD $
+                        <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <!-- Dropdown Start -->
+                                            <ul class="ht-dropdown">
+                                                <li>
+                                                    <a href="#">EUR €</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">USD $</a>
+                                                </li>
+                                            </ul>
+                                            <!-- Dropdown End -->
+                                        </li>--%>
+                                        <%--<li>
+                                            <a href="#">
+                                                <img
+                                                    src="img/header/1.webp"
+                                                    alt="language-selector" />English
+                        <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <!-- Dropdown Start -->
+                                            <ul class="ht-dropdown">
+                                                <li>
+                                                    <a href="#">
+                                                        <img
+                                                            src="img/header/1.webp"
+                                                            alt="language-selector" />English</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <img
+                                                            src="img/header/2.webp"
+                                                            alt="language-selector" />Francis</a>
+                                                </li>
+                                            </ul>
+                                            <!-- Dropdown End -->
+                                        </li>--%>
+                                        <li>
+                                            <a href="#">Setting
+                        <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <!-- Dropdown Start -->
+                                            <ul class="ht-dropdown">
+                                                <%--  <li>
+                                                    <a href="compare.html">compare products</a>
+                                                </li>--%>
+                                                <asp:Panel runat="server" ID="Pnl_Login">
+                                                    <li>
+                                                        <a href="/Language/En/Customers/MyAccount">my account</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Language/En/Customers/Wishlist">my wishlist</a>
+                                                    </li>
+                                                </asp:Panel>
+                                                <li>
+                                                    <a runat="server" id="LoginIcon" href="/Language/En/Customers/CustomerLogin">sign in</a>
+                                                    <a runat="server" id="AccountIcon" href="/Language/En/Customers/Logout">logout</a>
+                                                </li>
+                                            </ul>
+                                            <!-- Dropdown End -->
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Header Top Right End -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Container End -->
+                </div>
+                <!-- Header Top End Here -->
+                <!-- Header Middle Start Here -->
+                <div class="header-middle stick header-sticky">
+                    <div class="header-middle_nav position-relative">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <!-- Logo Start -->
+                                <div class="col-xl-3 col-lg-2 col-6">
+                                    <div class="logo">
+                                        <a href="/">
+                                            <img src="/App_Themes/asset/img/logo/bg-logo2.png" alt="logo-image" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Logo End -->
+                                <!-- Menu Area Start Here -->
+                                <div
+                                    class="col-xl-7 col-lg-8 d-none d-lg-block position-static">
+                                    <nav>
+                                        <ul class="header-bottom-list d-flex justify-content-start">
+                                            <!--  #include file="~/Language/En/Menu1.aspx" -->
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- Menu Area End Here -->
+                                <!-- Cart Box Start Here -->
+                                <div class="col-xl-2 col-lg-2 col-6">
+                                    <div class="cart-box">
+                                        <ul>
+                                            <!-- Search Box Start Here -->
+                                            <li>
+                                                <a href="#">
+                                                    <span class="pe-7s-search"></span>
+                                                </a>
+                                                <div class="categorie-search-box ht-dropdown">
+                                                    <div>
+                                                        <asp:TextBox runat="server" ID="Txt_Search" placeholder="Search our catalog" class="form-control"></asp:TextBox>
+                                                        <asp:LinkButton runat="server" ID="LinkButton1" OnClick="Btn_Search_Click" class="search-button"><i class="pe-7s-search"></i></asp:LinkButton>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <!-- Categorie Search Box End Here -->
+                                            <li>
+                                                <a href="#">
+                                                    <span class="pe-7s-shopbag"></span>
+                                                    <span class="total-pro">
+                                                        <asp:Label ID="Lbl_Reset" Text="0" runat="server" />
+                                                        <asp:Label ID="Lbl_CartNum" runat="server" />
+                                                    </span>
+                                                </a>
+                                                <ul class="ht-dropdown cart-box-width">
+                                                    <li>
+                                                        <asp:Repeater runat="server" ID="Repeater_Product_Details" OnItemCommand="Repeater_Product_Details_ItemCommand">
+                                                            <ItemTemplate>
+                                                                <!-- Cart Box Start -->
+                                                                <div class="single-cart-box">
+                                                                    <div class="cart-img">
+                                                                        <a href="#">
+                                                                            <img
+                                                                                src='<%# Common.GeneralUtilities.AppSettings("ProductsImagesUploadPath")+"/Files/Products" + "/" + Eval("Product.ID", "{0}") + "/" + Eval("MainImage", "{0}")%>'
+                                                                                alt="cart-image" />
+                                                                        </a>
+                                                                        <span class="pro-quantity"><%# Eval("Quantity", "{0}")%>X</span>
+                                                                    </div>
+                                                                    <div class="cart-content">
+                                                                        <h6>
+                                                                            <a href="#"><%# Eval("Name", "{0}") %></a>
+                                                                        </h6>
+                                                                        <span class="cart-price"><%# string.Format("{0:N0}", Eval("Price", "{0}")) + " " + Common.GeneralUtilities.AppSettings("currency")%></span>
+                                                                        <%--<span>Size: S</span>
+                                                                        <span>Color: Yellow</span>--%>
+                                                                    </div>
+                                                                    <a class="del-icone" href="#">
+                                                                        <i class="ion-close"></i>
+                                                                    </a>
+                                                                </div>
+                                                                <!-- Cart Box End -->
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+
+                                                        <!-- Cart Footer Inner Start -->
+                                                        <div class="cart-footer">
+                                                            <%--   <ul class="price-content">
+                                                                <li>Subtotal
+                                  <span>$57.95</span>
+                                                                </li>
+                                                                <li>Shipping
+                                  <span>$7.00</span>
+                                                                </li>
+                                                                <li>Taxes
+                                  <span>$0.00</span>
+                                                                </li>
+                                                                <li>Total
+                                  <span>$64.95</span>
+                                                                </li>
+                                                            </ul>--%>
+                                                            <div class="cart-actions text-center">
+                                                                <a class="cart-checkout" href="/Language/En/Customers/Cart">Cart</a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Cart Footer Inner End -->
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Cart Box End Here -->
+                            </div>
+                            <!-- Row End -->
+                            <!-- Mobile Menu Start Here -->
+                            <div class="mobile-menu d-block d-lg-none">
+                                <nav>
+                                    <ul>
+                                        <!--  #include file="~/Language/En/Menu4.aspx" -->
+
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- Mobile Menu End Here -->
+                        </div>
+                        <!-- Container End -->
+                    </div>
+                </div>
+                <!-- Header Middle End Here -->
+            </header>
+            <!-- Main Header Area Three End Here -->
+            <main class="main-content">
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+                <div class="offcanvas-overlay"></div>
+            </main>
+
+            <!-- OffCanvas Cart Start -->
+            <%--<div id="offcanvas-cart" class="offcanvas offcanvas-cart">
+        <div class="inner">
+            <div class="head">
+                <span class="title">Cart</span>
+                <button class="offcanvas-close">×</button>
+            </div>
+            <div class="body customScroll">
+                <ul class="minicart-product-list">
+                    <asp:Repeater runat="server" ID="Repeater_Product_Details" OnItemCommand="Repeater_Product_Details_ItemCommand">
+                        <ItemTemplate>
+                            <li>
+                                <a href='<%# "/Language/En/Catalog/ProductDetails?id=" + Eval("ProductId", "{0}") + "&Name=" + Common.GeneralUtilities.GetUniqueName(Eval("Name", "{0}")) %>' title='<%# Eval("Name", "{0}") %>' class="image">
+                                    <img src='<%# Common.GeneralUtilities.AppSettings("ProductsImagesUploadPath")+"/Files/Products" + "/" + Eval("Product.ID", "{0}") + "/" + Eval("MainImage", "{0}")%>'
+                                        alt='<%# Eval("Name", "{0}") %>'></a>
+                                <div class="content">
+                                    <a href='<%# "/Language/En/Catalog/ProductDetails?id=" + Eval("ProductId", "{0}") + "&Name=" + Common.GeneralUtilities.GetUniqueName(Eval("Name", "{0}")) %>' title='<%# Eval("Name", "{0}") %>' class="title"><%# Eval("Name", "{0}") %></a>
+                                    <span class="quantity-price"><%# Eval("Quantity", "{0}")%> x <span class="amount"><%# string.Format("{0:N0}", Eval("Price", "{0}")) + " " + Common.GeneralUtilities.AppSettings("currency")%></span></span>
+                                    <asp:LinkButton runat="server" ID="btn_remove" CommandName="delete" CommandArgument='<%# Eval("ProductId", "{0}") %>' class="remove">×</asp:LinkButton>
+                                </div>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    
+                </ul>
+            </div>
+            <div class="foot">
+                <div class="buttons mt-30px">
+                    <a href="/Language/En/Customers/Cart" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
+                    <a href="/Language/En/Customers/Checkout" class="btn btn-outline-dark current-btn">checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>--%>
+            <!-- OffCanvas Cart End -->
+
+
+
+
+
+            <!-- Footer Area Start Here -->
+            <footer class="pb-35">
+                <div class="container">
+                    <!-- Footer Middle Start -->
+                    <div class="footer-middle ptb-90">
+                        <div class="row">
+                            <!-- Single Footer Start -->
+                            <div class="col-lg-3 col-md-6 mb-all-30">
+                                <div class="single-footer">
+                                    <div class="footer-logo mb-20">
+                                        <a href="#">
+                                            <img class="img" src="/App_Themes/asset/img/logo/bg-logo2.png" alt="logo-img" /></a>
+                                    </div>
+                                    <div class="footer-content">
+                                        <ul class="footer-list first-content">
+                                            <uc1:AboutUsFooter runat="server" ID="AboutUsFooter" />
+                                            <li class="mt-20">
+                                                <uc1:SocialMediaFooter runat="server" ID="SocialMediaFooter" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Footer Start -->
+                            <!-- Single Footer Start -->
+                            <uc1:OtherPage runat="server" ID="OtherPage" />
+                            <!-- Single Footer Start -->
+                            <!-- Single Footer Start -->
+                            <uc1:QuickLinks runat="server" ID="QuickLinks" />
+
+                            <!-- Single Footer Start -->
+                            <!-- Single Footer Start -->
+
+                            <div class="col-lg-5 col-md-6 mb-all-30">
+                                <uc1:ContactUsFooter runat="server" ID="ContactUsFooter" />
+                            </div>
+                            <%--<div class="col-lg-4 col-md-6">
+                                <div class="single-footer">
+                                    <div class="single-footer">
+                                        <h4 class="footer-title">Join Our Newsletter Now</h4>
+                                        <div class="footer-content subscribe-form">
+                                            <div class="subscribe-box">
+                                                <form action="#">
+                                                    <input
+                                                        type="text"
+                                                        id="subscribe_email"
+                                                        placeholder="Your email address" />
+                                                    <button
+                                                        type="submit"
+                                                        class="pe-7s-mail-open">
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <p class="mt-10">
+                                                Get E-mail updates about our latest shop and special
+                        offers.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>--%>
+                            <!-- Single Footer Start -->
+                        </div>
+                        <!-- Row End -->
+                    </div>
+                    <!-- Footer Middle End -->
+                    <!-- Footer Bottom Start -->
+                    <div class="footer-bottom pt-35">
+                        <div class="col-md-12">
+                            <div class="row align-items-center justify-content-md-between">
+                                <div class="col-auto footer-copyright">
+                                    <p>
+                                        &copy; 2022
+                    <a href="javascript:void(0)">BG</a>
+                                        Made with <i class="fa fa-heart"></i>by
+                    <a target="_blank" href="https://www.hasthemes.com">ArkTech</a>
+                                    </p>
+                                </div>
+                                <div class="col-auto footer-payment">
+                                    <a href="#">
+                                        <%--<img
+                                            src="img/payment/payment.webp"
+                                            alt="payment-img"
+                                            class="img" />--%></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Bottom End -->
+                </div>
+            </footer>
+            <!-- Footer Area End Here -->
+
+
+
+
+
+
+
+
+        </div>
+        <!-- jquery -->
+        <script src="/App_Themes/asset/js/vendor/jquery-3.6.0.min.js"></script>
+        <!-- jquery migrate -->
+        <script src="/App_Themes/asset/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+        <!-- Countdown js -->
+        <script src="/App_Themes/asset/js/jquery.countdown.min.js"></script>
+        <!-- Mobile menu js -->
+        <script src="/App_Themes/asset/js/jquery.meanmenu.min.js"></script>
+        <!-- ScrollUp js -->
+        <script src="/App_Themes/asset/js/jquery.scrollUp.js"></script>
+        <!-- Fancybox js -->
+        <script src="/App_Themes/asset/js/jquery.fancybox.min.js"></script>
+        <!-- Jquery nice select js -->
+        <script src="/App_Themes/asset/js/jquery.nice-select.min.js"></script>
+        <!-- Jquery ui price slider js -->
+        <script src="/App_Themes/asset/js/jquery-ui.min.js"></script>
+        <!-- Owl carousel -->
+        <script src="/App_Themes/asset/js/owl.carousel.min.js"></script>
+        <!-- Bootstrap popper js -->
+        <script src="/App_Themes/asset/js/popper.min.js"></script>
+        <!-- Bootstrap js -->
+        <script src="/App_Themes/asset/js/bootstrap.min.js"></script>
+        <!-- Plugin js -->
+        <script src="/App_Themes/asset/js/plugins.js"></script>
+        <!-- Main activaion js -->
+        <script src="/App_Themes/asset/js/main.js"></script>
+        <script src="/App_Themes/asset/js/vendor/swiper.min.js"></script>
+        <!--=== jQuery Custom Js ===-->
+        <script src="/App_Themes/asset/js/custom.js"></script>
+
+
+        <script src="/App_Themes/asset/js/highlight.pack.js"></script>
+        <script src="/App_Themes/asset/js/tabifier.js"></script>
+        <script src="/App_Themes/asset/js/js.js"></script>
+        <script src="/App_Themes/asset/js/jPages.js"></script>
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-28718218-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+        <script>
+            $(function () {
+                $("div.holder").jPages({
+                    containerID: "itemContainer",
+                    previous: "←",
+                    next: "→",
+                    perPage: 9,
+                    midRange: 3,
+                    direction: "random",
+                    animation: "flipInY"
+                });
+            });
+        </script>
+        <script>
+            $(".mean-expand").click(function () {
+                //$("#yourUlId").toggle();
+                $(".offcanvas-nav-parent ul").toggle();
+            });
+        </script>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder_Script" runat="server"></asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

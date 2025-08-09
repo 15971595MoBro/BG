@@ -1,0 +1,1 @@
+<script>fbq('track', 'Purchase', {content_ids:[38],value:78.00,currency: 'EGP',content_type: 'product',});</script>

@@ -1,0 +1,1256 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HomeMasterPage.master.cs" Inherits="BGBeauty_Website.Language.En.HomeMasterPage" %>
+
+<%@ Register Src="~/UserControl/MainSlider.ascx" TagPrefix="uc1" TagName="MainSlider" %>
+<%@ Register Src="~/UserControl/CategoryBanner.ascx" TagPrefix="uc1" TagName="CategoryBanner" %>
+<%@ Register Src="~/UserControl/FeatureArea.ascx" TagPrefix="uc1" TagName="FeatureArea" %>
+<%@ Register Src="~/UserControl/ProductArea.ascx" TagPrefix="uc1" TagName="ProductArea" %>
+<%@ Register Src="~/UserControl/SocialMediaFooter.ascx" TagPrefix="uc1" TagName="SocialMediaFooter" %>
+<%@ Register Src="~/UserControl/QuickLinks.ascx" TagPrefix="uc1" TagName="QuickLinks" %>
+<%@ Register Src="~/UserControl/OtherPage.ascx" TagPrefix="uc1" TagName="OtherPage" %>
+<%@ Register Src="~/UserControl/FooterAdressPhone.ascx" TagPrefix="uc1" TagName="FooterAdressPhone" %>
+<%@ Register Src="~/UserControl/NavbarMenu.ascx" TagPrefix="uc1" TagName="NavbarMenu" %>
+<%@ Register Src="~/UserControl/LoginPopup.ascx" TagPrefix="uc1" TagName="LoginPopup" %>
+<%@ Register Src="~/UserControl/AllProduct.ascx" TagPrefix="uc1" TagName="AllProduct" %>
+<%@ Register Src="~/UserControl/AboutArea.ascx" TagPrefix="uc1" TagName="AboutArea" %>
+<%@ Register Src="~/UserControl/AreaWrapper.ascx" TagPrefix="uc1" TagName="AreaWrapper" %>
+<%@ Register Src="~/UserControl/BlogArea.ascx" TagPrefix="uc1" TagName="BlogArea" %>
+<%@ Register Src="~/UserControl/ContactUsFooter.ascx" TagPrefix="uc1" TagName="ContactUsFooter" %>
+<%@ Register Src="~/UserControl/AboutUsFooter.ascx" TagPrefix="uc2" TagName="AboutUsFooter" %>
+
+
+
+
+
+
+
+
+
+
+<%--<%@ Register Src="~/Language/En/Test.ascx" TagPrefix="uc1" TagName="Test" %>--%>
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>BGBeauty</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="/App_Themes/asset/img/favicon.ico" />
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/font-awesome.min.css" />
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/animate.css" />
+    <!-- 7-stroke fonts css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/pe-icon-7-stroke.min.css" />
+    <!-- Nice select css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/nice-select.css" />
+    <!-- Jquery fancybox css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/jquery.fancybox.css" />
+    <!-- Jquery ui price slider css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/jquery-ui.min.css" />
+    <!-- Meanmenu css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/meanmenu.min.css" />
+    <!-- Owl carousel css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/owl.carousel.min.css" />
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/bootstrap.min.css" />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/default.css" />
+    <!-- Main css -->
+    <link rel="stylesheet" href="/App_Themes/asset/style.css" />
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="/App_Themes/asset/css/responsive.css" />
+
+    <link href="/App_Themes/asset/css/normalize.min.css" rel="stylesheet" />
+    <%--    <link href="/App_Themes/asset/css/bootstrap_tab.css" rel="stylesheet" />--%>
+    <!-- Modernizer js -->
+    <script src="/App_Themes/asset/js/vendor/modernizr-3.5.0.min.js"></script>
+
+
+
+    <style>
+        .search-button {
+            background: transparent none repeat scroll 0 0;
+            border: 0 none;
+            height: 45px;
+            line-height: 55px;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            -webkit-transition: all 300ms ease-in 0s;
+            transition: all 300ms ease-in 0s;
+            width: 45px;
+        }
+
+            .search-button:hover {
+                color: #c7b270;
+            }
+
+            .search-button i {
+                font-size: 25px;
+            }
+
+        .products-tab {
+            padding: 0;
+        }
+
+        .product-item:hover .product-thumb .sec-img, .product-list-item:hover .product-thumb .sec-img {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .product-item:hover .product-thumb .pri-img, .product-list-item:hover .product-thumb .pri-img {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .product-item:hover .button-group a, .product-list-item:hover .button-group a {
+            opacity: 1;
+            visibility: visible;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+            .product-item:hover .button-group a:last-child, .product-list-item:hover .button-group a:last-child {
+                left: 105px;
+                -webkit-transition-delay: 0.5s;
+                -o-transition-delay: 0.5s;
+                transition-delay: 0.5s;
+            }
+
+            .product-item:hover .button-group a:first-child, .product-list-item:hover .button-group a:first-child {
+                right: 105px;
+                -webkit-transition-delay: 0.5s;
+                -o-transition-delay: 0.5s;
+                transition-delay: 0.5s;
+            }
+
+        .product-caption {
+            padding-top: 27px;
+        }
+
+            .product-caption .product-name a {
+                color: #222222;
+                text-transform: capitalize;
+            }
+
+            .product-caption .product-name {
+                font-weight: 400;
+                line-height: 1.2;
+                padding-bottom: 14px;
+                font-family: "Poppins", sans-serif;
+            }
+
+        .price-box {
+            font-size: 15px;
+            line-height: 1;
+        }
+
+        .price-regular {
+            color: #ffa073;
+            font-weight: 500;
+        }
+
+        .price-old {
+            color: #999;
+            padding-left: 5px;
+            font-weight: 300;
+        }
+
+        .product-caption .product-name a:hover {
+            color: #ffa073;
+        }
+
+        .button-group a:hover {
+            color: #fff;
+            background-color: #ffa073;
+        }
+
+        .banner-product-single-item .content .title {
+            color: #721b65;
+        }
+
+        .btn-theme.btn-theme-color::before {
+            border-radius: 15px;
+            background-color: #721b65;
+            border: 2px solid #721b65;
+        }
+
+        .carousel-in-tab .item {
+            /*          height: 10rem;
+          background: #4dc7a0;*/
+            padding: 1rem;
+        }
+
+
+        .tab-link {
+            cursor: pointer;
+            display: inline-block;
+            padding: 10px 20px;
+            border-width: 1px 1px 5px 1px;
+            border-color: #ededed;
+            border-style: solid;
+        }
+
+            .tab-link.active {
+                border-bottom-color: #ffa073;
+            }
+
+
+        /* End New Carousel Tab */
+
+        .modal-backdrop {
+            background-color: #f3976c;
+        }
+
+        .product-thumb .sec-img {
+            top: 0;
+            left: 0;
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .button-group a {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            margin: auto;
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            font-size: 28px;
+            line-height: 56px;
+            color: #222222;
+            text-align: center;
+            background-color: #fff;
+            -webkit-transition: 0.4s;
+            -o-transition: 0.4s;
+            transition: 0.4s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1;
+            -webkit-transform: translateY(50px);
+            -ms-transform: translateY(50px);
+            transform: translateY(50px);
+            text-decoration: none !important;
+        }
+
+        .hs {
+            display: flex;
+            overflow-x: scroll;
+            justify-content: space-between;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE 10+ */
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -20px;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+
+        .hs__header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hs__headline {
+            flex: 1;
+        }
+
+        .hs__arrows {
+            align-self: center;
+            /*background: #ffa073;
+            padding: 1px 9px;
+            border-radius: 6px;*/
+            margin-top: 10px;
+        }
+
+            .hs__arrows .arrow:before {
+                content: "";
+                display: inline-block;
+                vertical-align: middle;
+                content: "";
+                background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgMTUgOSI+Cgk8cGF0aCBmaWxsPSIjMzMzMzMzIiBkPSJNNy44NjcgOC41NzRsLTcuMjItNy4yMi43MDctLjcwOEw3Ljg2NyA3LjE2IDE0LjA1Ljk4bC43MDYuNzA3Ii8+Cjwvc3ZnPgo=");
+                background-size: contain;
+                filter: brightness(2);
+                width: 18px;
+                height: 12px;
+                cursor: pointer;
+            }
+
+            .hs__arrows .arrow.disabled:before {
+                filter: brightness(2);
+            }
+
+            .hs__arrows .arrow.arrow-prev:before {
+                transform: rotate(90deg);
+                margin-right: 10px;
+            }
+
+            .hs__arrows .arrow.arrow-next:before {
+                transform: rotate(-90deg);
+            }
+
+        .hs__item {
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: calc(100% / 4 - (10px * 2) - (20px / 4));
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media only screen and (max-width: 990px) {
+            .hs__item {
+                flex-basis: calc(100% / 3 - (10px * 2) - (20px / 3));
+            }
+        }
+
+        .hs__item:last-child:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 10px;
+            height: 1px;
+            right: calc(10px * 2 * -1);
+        }
+
+        .hs__item:first-child {
+            margin-left: calc(10px * 2);
+        }
+
+        .hs__item__description {
+            z-index: 1;
+            align-self: flex-start;
+            margin: 10px 0;
+        }
+
+        .hs__item__subtitle {
+            color: #aaa;
+            display: block;
+        }
+
+        .hs__item__image__wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+        }
+
+        .hs__item__image {
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+
+        @media only screen and (min-width: 990px) {
+            .hs__wrapper {
+                overflow: hidden;
+            }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .hs__wrapper .hs__arrows {
+                display: none;
+            }
+
+            .hs__wrapper .hs__item {
+                flex: 1 0 calc(23% - 10px * 2);
+            }
+        }
+
+        @media only screen and (hover: none) and (pointer: coarse) and (max-width: 990px) {
+            .hs__wrapper .hs__item {
+                flex: 1 0 calc(45% - 10px * 2);
+            }
+        }
+
+        .header-navigation-area .main-menu.nav > li > a {
+            text-decoration: none;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        @media only screen and (min-width:374px) and (max-width:428px) {
+            .product-caption {
+                padding-top: 0;
+            }
+
+            .hs {
+                height: 270px;
+                margin: 0;
+            }
+
+            figure {
+                margin: 0;
+            }
+
+            .button-group a {
+                width: 20px;
+            }
+
+            .button-group i {
+                font-size: 20px;
+            }
+
+            .product-item:hover .button-group a:last-child, .product-list-item:hover .button-group a:last-child {
+                left: 76px;
+            }
+        }
+
+        .footer-list li em {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        .product-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+            .product-item .product-thumb {
+                overflow: hidden;
+                position: relative;
+            }
+
+                .product-item .product-thumb img {
+                    width: 100%;
+                }
+
+        .header-top-left > ul > li > a em {
+            font-size: 13px;
+            margin-right: 5px;
+        }
+
+        @media (max-width: 480px) {
+
+            .fullscreen, .slider-style-three .fullscreen {
+                padding: 60px 0;
+                background-size: cover;
+            }
+        }
+
+        .header-bottom-list ul.ht-dropdown.megamenu-three > li {
+            width: 33.33333%;
+        }
+
+        .footer-middle, .footer-bottom {
+            border-top: none;
+        }
+
+        .sticker-discount {
+            background: #323232 none repeat scroll 0 0;
+            border-radius: 0;
+            color: #fff;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            height: 25px;
+            right: 20px;
+            line-height: 25px;
+            min-width: 50px;
+            padding: 0 5px;
+            position: absolute;
+            text-align: center;
+            text-transform: capitalize;
+            top: 20px;
+            z-index: 5;
+        }
+
+        .pro-title {
+            text-align: center
+        }
+
+        .pro-content p {
+            text-align: center;
+        }
+
+        .slide {
+            position: relative;
+            z-index: 1;
+        }
+
+            .slide::before {
+                background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
+                content: "";
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                z-index: -1;
+            }
+
+        .slider-content h1, p {
+            color: #FFF;
+        }
+
+        .footer-copyright p {
+            font-size: 13px;
+            line-height: 1;
+            color: #000 !important;
+        }
+
+        .TxtAreaFooter {
+            margin-top: -50px !important;
+        }
+    </style>
+
+</head>
+
+
+<body class="template-color-1">
+
+    <!-- Top Bar -->
+    <form id="form1" runat="server">
+
+        <div class="wrapper">
+
+            <!--== Start Preloader Content ==-->
+            <div class="preloader-wrap">
+                <div class="preloader">
+                    <div class="dog-head"></div>
+                    <div class="dog-body"></div>
+                </div>
+            </div>
+            <!--== End Preloader Content ==-->
+
+            <!-- Main Header Area Three Start Here -->
+            <header class="header-style-five">
+                <!-- Header Top Start Here -->
+                <div class="header-top">
+                    <div class="container">
+                        <div class="col-sm-12">
+                            <div
+                                class="row justify-content-lg-between justify-content-center">
+                                <!-- Header Top Left Start -->
+                                <div class="col-auto header-top-left order-2 order-lg-1">
+                                    <ul>
+                                        <a href="whatsapp://send?text=&phone=+201050977840"><i class="fa fa-whatsapp" aria-hidden="true">+201050977840</i></a>
+                                        <asp:Repeater runat="server" ID="Repeater_TopHeader">
+                                            <ItemTemplate>
+                                                <%# Eval("Wpm_Content") %>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+
+                                        <li>
+                                            <ul class="social-icon">
+                                                <uc1:SocialMediaFooter runat="server" ID="SocialMediaFooter1" />
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Header Top Left End -->
+                                <!-- Header Top Right Start -->
+                                <div class="col-auto header-top-right order-1 order-lg-2">
+                                    <ul>
+                                        <%--<li>
+                                            <a href="#">USD $
+                        <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <!-- Dropdown Start -->
+                                            <ul class="ht-dropdown">
+                                                <li>
+                                                    <a href="#">EUR €</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">USD $</a>
+                                                </li>
+                                            </ul>
+                                            <!-- Dropdown End -->
+                                        </li>--%>
+                                        <%--<li>
+                                            <a href="#">
+                                                <img
+                                                    src="img/header/1.webp"
+                                                    alt="language-selector" />English
+                        <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <!-- Dropdown Start -->
+                                            <ul class="ht-dropdown">
+                                                <li>
+                                                    <a href="#">
+                                                        <img
+                                                            src="img/header/1.webp"
+                                                            alt="language-selector" />English</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <img
+                                                            src="img/header/2.webp"
+                                                            alt="language-selector" />Francis</a>
+                                                </li>
+                                            </ul>
+                                            <!-- Dropdown End -->
+                                        </li>--%>
+                                        <li>
+                                            <a href="#">Setting
+                        <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <!-- Dropdown Start -->
+                                            <ul class="ht-dropdown">
+                                                <%--  <li>
+                                                    <a href="compare.html">compare products</a>
+                                                </li>--%>
+                                                <asp:Panel runat="server" ID="Pnl_Login">
+                                                    <li>
+                                                        <a href="/Language/En/Customers/MyAccount">my account</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Language/En/Customers/Wishlist">my wishlist</a>
+                                                    </li>
+                                                </asp:Panel>
+
+                                                <li>
+                                                    <a runat="server" id="LoginIcon" href="/Language/En/Customers/CustomerLogin">sign in</a>
+                                                    <a runat="server" id="AccountIcon" href="/Language/En/Customers/Logout">logout</a>
+                                                </li>
+                                            </ul>
+                                            <!-- Dropdown End -->
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Header Top Right End -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Container End -->
+                </div>
+                <!-- Header Top End Here -->
+                <!-- Header Middle Start Here -->
+                <div class="header-middle stick header-sticky">
+                    <div class="header-middle_nav position-relative">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <!-- Logo Start -->
+                                <div class="col-xl-3 col-lg-2 col-6">
+                                    <div class="logo">
+                                        <a href="/">
+                                            <img src="/App_Themes/asset/img/logo/bg-logo2.png" alt="logo-image" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Logo End -->
+                                <!-- Menu Area Start Here -->
+                                <div
+                                    class="col-xl-7 col-lg-8 d-none d-lg-block position-static">
+                                    <nav>
+                                        <ul class="header-bottom-list d-flex justify-content-start">
+                                            <!--  #include file="~/Language/En/Menu1.aspx" -->
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- Menu Area End Here -->
+                                <!-- Cart Box Start Here -->
+                                <div class="col-xl-2 col-lg-2 col-6">
+                                    <div class="cart-box">
+                                        <ul>
+                                            <!-- Search Box Start Here -->
+                                            <li>
+                                                <a href="#">
+                                                    <span class="pe-7s-search"></span>
+                                                </a>
+                                                <div class="categorie-search-box ht-dropdown">
+                                                    <div>
+                                                        <asp:TextBox runat="server" ID="Txt_Search" placeholder="Search our catalog" class="form-control"></asp:TextBox>
+                                                        <asp:LinkButton runat="server" ID="Btn_Search" OnClick="Btn_Search_Click" class="search-button"><i class="pe-7s-search"></i></asp:LinkButton>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <!-- Categorie Search Box End Here -->
+                                            <li>
+                                                <a href="#">
+                                                    <span class="pe-7s-shopbag"></span>
+                                                    <span class="total-pro">
+                                                        <asp:Label ID="Lbl_Reset" Text="0" runat="server" />
+                                                        <asp:Label ID="Lbl_CartNum" runat="server" />
+                                                    </span>
+                                                </a>
+                                                <ul class="ht-dropdown cart-box-width">
+                                                    <li>
+                                                        <asp:Repeater runat="server" ID="Repeater_Product_Details" OnItemCommand="Repeater_Product_Details_ItemCommand">
+                                                            <ItemTemplate>
+                                                                <!-- Cart Box Start -->
+                                                                <div class="single-cart-box">
+                                                                    <div class="cart-img">
+                                                                        <a href="#">
+                                                                            <img
+                                                                                src='<%# Common.GeneralUtilities.AppSettings("ProductsImagesUploadPath")+"/Files/Products" + "/" + Eval("Product.ID", "{0}") + "/" + Eval("MainImage", "{0}")%>'
+                                                                                alt="cart-image" />
+                                                                        </a>
+                                                                        <span class="pro-quantity"><%# Eval("Quantity", "{0}")%>X</span>
+                                                                    </div>
+                                                                    <div class="cart-content">
+                                                                        <h6>
+                                                                            <a href="#"><%# Eval("Name", "{0}") %></a>
+                                                                        </h6>
+                                                                        <span class="cart-price"><%# string.Format("{0:N0}", Eval("Price", "{0}")) + " " + Common.GeneralUtilities.AppSettings("currency")%></span>
+                                                                        <%--<span>Size: S</span>
+                                                                        <span>Color: Yellow</span>--%>
+                                                                    </div>
+                                                                    <a class="del-icone" href="#">
+                                                                        <i class="ion-close"></i>
+                                                                    </a>
+                                                                </div>
+                                                                <!-- Cart Box End -->
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+
+                                                        <!-- Cart Footer Inner Start -->
+                                                        <div class="cart-footer">
+                                                            <%-- <ul class="price-content">
+                                                                <li>Subtotal
+                                  <span>$57.95</span>
+                                                                </li>
+                                                                <li>Shipping
+                                  <span>$7.00</span>
+                                                                </li>
+                                                                <li>Taxes
+                                  <span>$0.00</span>
+                                                                </li>
+                                                                <li>Total
+                                  <span>$64.95</span>
+                                                                </li>
+                                                            </ul>--%>
+                                                            <div class="cart-actions text-center">
+                                                                <a class="cart-checkout" href="/Language/En/Customers/Cart">Cart</a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Cart Footer Inner End -->
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Cart Box End Here -->
+                            </div>
+                            <!-- Row End -->
+                            <!-- Mobile Menu Start Here -->
+                            <div class="mobile-menu d-block d-lg-none">
+                                <nav>
+                                    <ul>
+                                        <!--  #include file="~/Language/En/Menu4.aspx" -->
+
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- Mobile Menu End Here -->
+                        </div>
+                        <!-- Container End -->
+                    </div>
+                </div>
+                <!-- Header Middle End Here -->
+            </header>
+            <!-- Main Header Area Three End Here -->
+
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+
+            <!-- Main Header Area End Here -->
+            <!-- Slider Area Start -->
+            <uc1:MainSlider runat="server" ID="MainSlider" />
+            <!-- Slider Area End -->
+            <!--  Top Banner Area Start -->
+            <uc1:CategoryBanner runat="server" ID="CategoryBanner" />
+            <!--  Top Banner Area End -->
+            <!--  Deal Product Start Here -->
+            <%--<div class="deal-pro bg-image-18">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="offset-lg-6 col-lg-6">
+                            <div class="main-deal-pro">
+                                <div class="section-title deal-header">
+                                    <h2>daily deals</h2>
+                                    <p>Deals <span>30%</span> for all Jackets Products</p>
+                                </div>
+                                <div class="daily-deal-active owl-carousel">
+                                    <!-- Single Product Start Here -->
+                                    <div class="single-makal-product">
+                                        <div class="countdown" data-countdown="2020/05/01"></div>
+                                        <div class="pro-img">
+                                            <a href="product-details.html">
+                                                <img
+                                                    src="img/products/cosmetic/1.webp"
+                                                    alt="product-img" />
+                                            </a>
+                                            <span class="sticker-new">new</span>
+                                            <div class="quick-view-pro">
+                                                <a
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#product-window"
+                                                    class="quick-view"
+                                                    href="#"></a>
+                                            </div>
+                                        </div>
+                                        <div class="pro-content">
+                                            <h4 class="pro-title">
+                                                <a href="product-details.html">Modern Eye Brush</a>
+                                            </h4>
+                                            <p>
+                                                <span class="price">$45.50</span>
+                                            </p>
+                                            <div class="pro-actions">
+                                                <div class="actions-primary">
+                                                    <a
+                                                        href="cart.html"
+                                                        class="add-to-cart"
+                                                        data-toggle="tooltip"
+                                                        data-original-title="Add to Cart">Add To Cart</a>
+                                                </div>
+                                                <div class="actions-secondary">
+                                                    <div class="rating">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End Here -->
+                                    <!-- Single Product Start Here -->
+                                    <div class="single-makal-product">
+                                        <div class="countdown" data-countdown="2020/07/01"></div>
+                                        <div class="pro-img">
+                                            <a href="product-details.html">
+                                                <img
+                                                    src="img/products/cosmetic/11.webp"
+                                                    alt="product-img" />
+                                            </a>
+                                            <span class="sticker-new">new</span>
+                                            <span class="sticker-sale">-5%</span>
+                                            <div class="quick-view-pro">
+                                                <a
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#product-window"
+                                                    class="quick-view"
+                                                    href="#"></a>
+                                            </div>
+                                        </div>
+                                        <div class="pro-content">
+                                            <h4 class="pro-title">
+                                                <a href="product-details.html">Sprite Yoga Straps1</a>
+                                            </h4>
+                                            <p>
+                                                <span class="price">$65.00</span>
+                                            </p>
+                                            <div class="pro-actions">
+                                                <div class="actions-primary">
+                                                    <a
+                                                        href="cart.html"
+                                                        class="add-to-cart"
+                                                        data-toggle="tooltip"
+                                                        data-original-title="Add to Cart">Add To Cart</a>
+                                                </div>
+                                                <div class="actions-secondary">
+                                                    <div class="rating">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End Here -->
+                                    <!-- Single Product Start Here -->
+                                    <div class="single-makal-product">
+                                        <div class="countdown" data-countdown="2025/05/01"></div>
+                                        <div class="pro-img">
+                                            <a href="product-details.html">
+                                                <img
+                                                    src="img/products/cosmetic/3.webp"
+                                                    alt="product-img" />
+                                            </a>
+                                            <span class="sticker-new">new</span>
+                                            <div class="quick-view-pro">
+                                                <a
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#product-window"
+                                                    class="quick-view"
+                                                    href="#"></a>
+                                            </div>
+                                        </div>
+                                        <div class="pro-content">
+                                            <h4 class="pro-title">
+                                                <a href="product-details.html">Voyage face cleaner</a>
+                                            </h4>
+                                            <p>
+                                                <span class="price">$61.21</span>
+                                                <span class="prev-price">$64.50</span>
+                                            </p>
+                                            <div class="pro-actions">
+                                                <div class="actions-primary">
+                                                    <a
+                                                        href="cart.html"
+                                                        class="add-to-cart"
+                                                        data-toggle="tooltip"
+                                                        data-original-title="Add to Cart">Add To Cart</a>
+                                                </div>
+                                                <div class="actions-secondary">
+                                                    <div class="rating">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Single Product End Here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>--%>
+            <!--  Deal Product End Here -->
+            <!-- New Arrival Products Start Here -->
+            <uc1:AllProduct runat="server" ID="AllProduct" />
+            <!-- New Arrival Products End Here -->
+            <!-- New Product Banner Start Here -->
+            <div class="product-bannner pro-border-style">
+                <div class="container-fluid">
+                    <div class="row">
+                        <asp:Repeater runat="server" ID="Repeater_PackagePic">
+                            <ItemTemplate>
+                                <div class="col-md-6 mb-sm-30">
+                                    <div class="single-banner">
+                                        <a href="#">
+                                            <img src='<%# Eval("PhotoURL") %>' alt="banner-img" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+
+                    </div>
+                </div>
+            </div>
+            <!-- New Product Banner End Here -->
+            <!-- Our Best Seller Product Start Here -->
+            <uc1:ProductArea runat="server" ID="ProductArea" />
+            <!-- Our Best Seller Product End Here -->
+            <!-- Blog Area Start Here -->
+            <%--            <uc1:BlogArea runat="server" ID="BlogArea" />--%>
+            <!-- Blog Area End Here -->
+            <!-- Testmonial Start Here -->
+            <!--<div class="testmonial bg-image-5 ptb-90">
+        <div class="container">
+          <!-- Section Title Start -->
+            <!--<div class="section-title text-center cl-testmonial">
+                    <h2>Client Testimonials</h2>
+                    <p>what they say</p>
+                </div> -->
+            <!-- Section Title End -->
+            <!--<div class="testmonial-active owl-carousel">
+            <!-- Single Slide Testmonial Start -->
+            <!--<div class="single-testmonial text-center">
+                        <div class="testmonial-content">
+                            <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.
+                                Mirum
+                                est notare quam littera gothica, quam nunc putamus parum claram.</p>
+                            <img src="img/testmonial/t1-user.webp" alt="testmonial-img">
+                            <span class="t-author">orando BLoom</span>
+                        </div>
+                    </div>-->
+            <!-- Single Slide Testmonial End -->
+            <!-- Single Slide Testmonial Start -->
+            <!--<div class="single-testmonial text-center">
+              <div class="testmonial-content">
+                <p>
+                  Processus dynamicus Claritas est etiam, qui sequitur
+                  mutationem consuetudium lectorum. Mirum est notare quam
+                  littera gothica, quam nunc putamus parum claram.
+                </p>
+                <img src="img/testmonial/t2-user.webp" alt="testmonial-img" />
+                <span class="t-author">jonthon trot</span>
+              </div>
+            </div> -->
+            <!-- Single Slide Testmonial End -->
+            <!-- Single Slide Testmonial Start -->
+            <!--<div class="single-testmonial text-center">
+              <div class="testmonial-content">
+                <p>
+                  Putamus parum claritas est etiam processus dynamicus, qui
+                  sequitur mutationem consuetudium lectorum. Mirum est notare
+                  quam littera gothica, quam nunc claram.
+                </p>
+                <img src="img/testmonial/t3-user.webp" alt="testmonial-img" />
+                <span class="t-author">pathok boli</span>
+              </div>
+            </div> -->
+            <!-- Single Slide Testmonial End -->
+            <!--</div>-->
+            <!--</div>
+      </div> -->
+            <!-- Testmonial End Here -->
+            <!-- Brand Activation Start Here -->
+            <!--<div class="brand-area pt-90">
+        <div class="container">
+          <!-- Brand Logo Active Start Here -->
+            <!--<div class="brand-logo-active owl-carousel">
+            <div class="single-brand">
+              <a href="#"><img src="img/brand/b1.webp" alt="brand-image" /></a>
+            </div>
+            <div class="single-brand">
+              <a href="#"><img src="img/brand/b2.webp" alt="brand-image" /></a>
+            </div>
+            <div class="single-brand">
+              <a href="#"><img src="img/brand/b3.webp" alt="brand-image" /></a>
+            </div>
+            <div class="single-brand">
+              <a href="#"><img src="img/brand/b5.webp" alt="brand-image" /></a>
+            </div>
+            <div class="single-brand">
+              <a href="#"><img src="img/brand/b4.webp" alt="brand-image" /></a>
+            </div>
+            <div class="single-brand">
+              <a href="#"><img src="img/brand/b1.webp" alt="brand-image" /></a>
+            </div>
+            <div class="single-brand">
+              <a href="#"><img src="img/brand/b2.webp" alt="brand-image" /></a>
+            </div>
+          </div> -->
+            <!-- Brand Logo Active End Here -->
+            <!--</div>
+      </div> -->
+            <!-- Brand Activation End Here -->
+            <!-- Categorie Slider Area Start Here -->
+            <%--<div class="categories-of-pro ptb-90">
+                <div class="container-fluid">
+                    <!-- Categorie Product Activation Start Here -->
+                    <div class="categorie-pro-active owl-carousel">
+                        <!-- Single Cat Pro Start -->
+                        <div class="single-categorie">
+                            <div class="cat-img">
+                                <a href="#">
+                                    <img src="img/categoires-pro/c5.webp" alt="cat-pro" />
+                                </a>
+                                <div class="cat-content">
+                                    <a href="#">Earrings</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Cat Pro End -->
+                        <!-- Single Cat Pro Start -->
+                        <div class="single-categorie">
+                            <div class="cat-img">
+                                <a href="#">
+                                    <img src="img/categoires-pro/c1.webp" alt="cat-pro" />
+                                </a>
+                                <div class="cat-content">
+                                    <a href="#">Necklaces</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Cat Pro End -->
+                        <!-- Single Cat Pro Start -->
+                        <div class="single-categorie">
+                            <div class="cat-img">
+                                <a href="#">
+                                    <img src="img/categoires-pro/c2.webp" alt="cat-pro" />
+                                </a>
+                                <div class="cat-content">
+                                    <a href="#">Bracelets</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Cat Pro End -->
+                        <!-- Single Cat Pro Start -->
+                        <div class="single-categorie">
+                            <div class="cat-img">
+                                <a href="#">
+                                    <img src="img/categoires-pro/c3.webp" alt="cat-pro" />
+                                </a>
+                                <div class="cat-content">
+                                    <a href="#">Portfolio</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Cat Pro End -->
+                        <!-- Single Cat Pro Start -->
+                        <div class="single-categorie">
+                            <div class="cat-img">
+                                <a href="#">
+                                    <img src="img/categoires-pro/c4.webp" alt="cat-pro" />
+                                </a>
+                                <div class="cat-content">
+                                    <a href="#">Necklaces</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Cat Pro End -->
+                    </div>
+                    <!-- Categorie Product Activation End Here -->
+                </div>
+            </div>--%>
+            <!-- Categorie Slider Area End Here -->
+            <!-- Support Area Start Here -->
+            <uc1:FeatureArea runat="server" ID="FeatureArea" />
+            <!-- Support Area End Here -->
+            <!-- Footer Area Start Here -->
+            <footer class="pb-35">
+                <div class="container">
+                    <!-- Footer Middle Start -->
+                    <div class="footer-middle ptb-90">
+                        <div class="row">
+                            <!-- Single Footer Start -->
+                            <div class="col-lg-3 col-md-6 mb-all-30">
+                                <div class="single-footer">
+                                    <div class="footer-logo mb-20">
+                                        <a href="#">
+                                            <img class="img" src="/App_Themes/asset/img/logo/bg-logo2.png" alt="logo-img" /></a>
+                                    </div>
+                                    <div class="footer-content">
+                                        <ul class="footer-list first-content">
+                                            <uc2:AboutUsFooter runat="server" ID="AboutUsFooter" />
+                                            <li class="mt-20">
+                                                <uc1:SocialMediaFooter runat="server" ID="SocialMediaFooter" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Footer Start -->
+                            <!-- Single Footer Start -->
+                            <uc1:OtherPage runat="server" ID="OtherPage" />
+                            <!-- Single Footer Start -->
+                            <!-- Single Footer Start -->
+                            <uc1:QuickLinks runat="server" ID="QuickLinks" />
+                            <!-- Single Footer Start -->
+                            <!-- Single Footer Start -->
+                            <div class="col-lg-5 col-md-6 mb-all-30">
+                                <uc1:ContactUsFooter runat="server" ID="ContactUsFooter" />
+                            </div>
+                            <%--<div class="col-lg-4 col-md-6">
+                                <div class="single-footer">
+                                    <div class="single-footer">
+                                        <h4 class="footer-title">Join Our Newsletter Now</h4>
+                                        <div class="footer-content subscribe-form">
+                                            <div class="subscribe-box">
+                                                <form action="#">
+                                                    <input
+                                                        type="text"
+                                                        id="subscribe_email"
+                                                        placeholder="Your email address" />
+                                                    <button
+                                                        type="submit"
+                                                        class="pe-7s-mail-open">
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <p class="mt-10">
+                                                Get E-mail updates about our latest shop and special
+                        offers.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>--%>
+                            <!-- Single Footer Start -->
+                        </div>
+                        <!-- Row End -->
+                    </div>
+                    <!-- Footer Middle End -->
+                    <!-- Footer Bottom Start -->
+                    <div class="footer-bottom pt-35">
+                        <div class="col-md-12">
+                            <div class="row align-items-center justify-content-md-between">
+                                <div class="col-auto footer-copyright">
+                                    <p>
+                                        &copy; 2022
+                    <a href="javascript:void(0)">BG</a>
+                                        Made with <i class="fa fa-heart"></i>by
+                    <a target="_blank" href="#">ArkTech</a>
+                                    </p>
+                                </div>
+                                <div class="col-auto footer-payment">
+                                    <a href="#">
+                                        <%--<img
+                                            src="img/payment/payment.webp"
+                                            alt="payment-img"
+                                            class="img" />--%></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Bottom End -->
+                </div>
+            </footer>
+            <!-- Footer Area End Here -->
+
+
+
+
+        </div>
+        <!-- jquery -->
+        <script src="/App_Themes/asset/js/vendor/jquery-3.6.0.min.js"></script>
+        <!-- jquery migrate -->
+        <script src="/App_Themes/asset/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+        <!-- Countdown js -->
+        <script src="/App_Themes/asset/js/jquery.countdown.min.js"></script>
+        <!-- Mobile menu js -->
+        <script src="/App_Themes/asset/js/jquery.meanmenu.min.js"></script>
+        <!-- ScrollUp js -->
+        <script src="/App_Themes/asset/js/jquery.scrollUp.js"></script>
+        <!-- Fancybox js -->
+        <script src="/App_Themes/asset/js/jquery.fancybox.min.js"></script>
+        <!-- Jquery nice select js -->
+        <script src="/App_Themes/asset/js/jquery.nice-select.min.js"></script>
+        <!-- Jquery ui price slider js -->
+        <script src="/App_Themes/asset/js/jquery-ui.min.js"></script>
+        <!-- Owl carousel -->
+        <script src="/App_Themes/asset/js/owl.carousel.min.js"></script>
+        <!-- Bootstrap popper js -->
+        <script src="/App_Themes/asset/js/popper.min.js"></script>
+        <!-- Bootstrap js -->
+        <script src="/App_Themes/asset/js/bootstrap.min.js"></script>
+        <!-- Plugin js -->
+        <script src="/App_Themes/asset/js/plugins.js"></script>
+        <!-- Main activaion js -->
+        <script src="/App_Themes/asset/js/main.js"></script>
+
+        <!--=== jQuery Custom Js ===-->
+        <script src="/App_Themes/asset/js/custom.js"></script>
+    </form>
+</body>
+</html>

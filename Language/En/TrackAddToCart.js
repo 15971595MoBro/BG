@@ -1,0 +1,1 @@
+<script>fbq('track', 'AddToCart', {content_ids:[34],content_type: 'product'});</script>
